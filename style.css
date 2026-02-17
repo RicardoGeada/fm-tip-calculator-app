@@ -83,7 +83,8 @@ form {
   flex-direction: column;
   gap: var(--spacing-400);
 }
-.billsection label, .billsection legend {
+.billsection label,
+.billsection legend {
   display: block;
   margin-bottom: 8px;
   color: var(--color-grey-500);
@@ -150,6 +151,45 @@ form {
   font-weight: 700;
   line-height: 36px;
   letter-spacing: 0px;
+}
+.billsection fieldset .fieldset-grid-selection.custom {
+  position: relative;
+}
+.billsection fieldset .fieldset-grid-selection.custom input[type=radio] + label input {
+  display: none;
+}
+.billsection fieldset .fieldset-grid-selection.custom input[type=radio]:checked + label span {
+  display: none;
+}
+.billsection fieldset .fieldset-grid-selection.custom input[type=radio]:checked + label:after {
+  pointer-events: none;
+  position: absolute;
+  right: calc(50% - 23px);
+  display: inline-flex;
+  content: "%";
+  color: var(--color-white);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: 0px;
+}
+.billsection fieldset .fieldset-grid-selection.custom input[type=radio]:checked + label input {
+  display: unset;
+  width: fit-content;
+  text-align: right;
+  background-color: transparent;
+  border: transparent;
+  outline: transparent;
+  color: var(--color-white);
+  padding-right: 16px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: 0px;
+}
+.billsection fieldset .fieldset-grid-selection.custom label {
+  background-color: var(--color-grey-50);
+  color: var(--color-grey-550);
 }
 
 .resultssection {
