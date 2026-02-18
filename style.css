@@ -93,15 +93,16 @@ form {
   line-height: 24px;
   letter-spacing: 0px;
 }
-.billsection .input-container {
+
+.input-with-icon {
   position: relative;
 }
-.billsection .input-container img {
+.input-with-icon__icon {
   position: absolute;
   left: var(--spacing-200);
   top: calc(50% - var(--spacing-100));
 }
-.billsection .input-container input {
+.input-with-icon__input {
   max-height: 48px;
   width: 100%;
   background-color: var(--color-grey-50);
@@ -116,31 +117,32 @@ form {
   line-height: 36px;
   letter-spacing: 0px;
 }
-.billsection .input-container input::placeholder {
+.input-with-icon__input::placeholder {
   color: var(--color-grey-300);
 }
-.billsection .input-container input:active, .billsection .input-container input:focus {
+.input-with-icon__input:active, .input-with-icon__input:focus {
   border-color: var(--color-green-400);
 }
-.billsection .input-container input:invalid {
+.input-with-icon__input:invalid {
   border-color: var(--color-orange-400);
 }
-.billsection fieldset {
+
+.fieldset {
   border: transparent;
 }
-.billsection fieldset .fieldset-grid {
+.fieldset-grid {
   display: grid;
   gap: var(--spacing-200);
   grid-template-columns: 1fr 1fr;
 }
-.billsection fieldset .fieldset-grid-selection input[type=radio] {
+.fieldset-grid-selection .radio-button {
   display: none;
 }
-.billsection fieldset .fieldset-grid-selection input[type=radio]:checked + label {
+.fieldset-grid-selection .radio-button:checked + label {
   color: var(--color-green-900);
   background-color: var(--color-green-400);
 }
-.billsection fieldset .fieldset-grid-selection label {
+.fieldset-grid-selection label {
   margin: 0;
   padding: var(--spacing-100) var(--spacing-200);
   background-color: var(--color-green-900);
@@ -152,16 +154,16 @@ form {
   line-height: 36px;
   letter-spacing: 0px;
 }
-.billsection fieldset .fieldset-grid-selection.custom {
+.fieldset-grid-selection.custom {
   position: relative;
 }
-.billsection fieldset .fieldset-grid-selection.custom input[type=radio] + label input {
+.fieldset-grid-selection.custom .radio-button + label input {
   display: none;
 }
-.billsection fieldset .fieldset-grid-selection.custom input[type=radio]:checked + label span {
+.fieldset-grid-selection.custom .radio-button:checked + label span {
   display: none;
 }
-.billsection fieldset .fieldset-grid-selection.custom input[type=radio]:checked + label:after {
+.fieldset-grid-selection.custom .radio-button:checked + label:after {
   pointer-events: none;
   position: absolute;
   right: calc(50% - 23px);
@@ -173,7 +175,7 @@ form {
   line-height: 36px;
   letter-spacing: 0px;
 }
-.billsection fieldset .fieldset-grid-selection.custom input[type=radio]:checked + label input {
+.fieldset-grid-selection.custom .radio-button:checked + label input {
   display: unset;
   width: fit-content;
   text-align: right;
@@ -187,7 +189,7 @@ form {
   line-height: 36px;
   letter-spacing: 0px;
 }
-.billsection fieldset .fieldset-grid-selection.custom label {
+.fieldset-grid-selection.custom label {
   background-color: var(--color-grey-50);
   color: var(--color-grey-550);
 }
@@ -224,7 +226,7 @@ form {
   line-height: 19px;
   letter-spacing: 0px;
 }
-.resultssection .value-container input {
+.resultssection .value-container output {
   width: 100%;
   border: transparent;
   background-color: transparent;
@@ -235,7 +237,7 @@ form {
   line-height: 47px;
   letter-spacing: -0.67px;
 }
-.resultssection button[type=reset] {
+.resultssection .reset-button {
   color: var(--color-green-800);
   background-color: var(--color-green-750);
   padding: var(--spacing-100) var(--spacing-400);
@@ -247,7 +249,7 @@ form {
   line-height: 30px;
   letter-spacing: 0px;
 }
-.resultssection button[type=reset]:hover {
+.resultssection .reset-button:hover {
   color: var(--color-green-900);
   background-color: var(--color-green-200);
 }

@@ -79,111 +79,112 @@ form {
     color: var(--color-grey-500);
     @include fonts.apply-text-preset("5");
   }
+}
 
-  .input-container {
-    position: relative;
+.input-with-icon {
+  position: relative;
 
-    img {
-      position: absolute;
-      left: var(--spacing-200);
-      top: calc(50% - var(--spacing-100));
-    }
-
-    input {
-      max-height: 48px;
-      width: 100%;
-      background-color: var(--color-grey-50);
-      outline: transparent;
-      border: 2px solid transparent;
-      border-radius: 5px;
-      padding: var(--spacing-100) var(--spacing-200);
-      text-align: right;
-
-      color: var(--color-green-900);
-      @include fonts.apply-text-preset("3");
-
-      &::placeholder {
-        color: var(--color-grey-300);
-      }
-
-      &:active,
-      &:focus {
-        border-color: var(--color-green-400);
-      }
-
-      &:invalid {
-        border-color: var(--color-orange-400);
-      }
-    }
+  &__icon {
+    position: absolute;
+    left: var(--spacing-200);
+    top: calc(50% - var(--spacing-100));
   }
 
-  fieldset {
-    border: transparent;
+  &__input {
+    max-height: 48px;
+    width: 100%;
+    background-color: var(--color-grey-50);
+    outline: transparent;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    padding: var(--spacing-100) var(--spacing-200);
+    text-align: right;
 
-    .fieldset-grid {
-      display: grid;
-      gap: var(--spacing-200);
-      grid-template-columns: 1fr 1fr;
+    color: var(--color-green-900);
+    @include fonts.apply-text-preset("3");
+
+    &::placeholder {
+      color: var(--color-grey-300);
     }
 
-    .fieldset-grid-selection {
+    &:active,
+    &:focus {
+      border-color: var(--color-green-400);
+    }
 
-      input[type="radio"] {
-        display: none;
+    &:invalid {
+      border-color: var(--color-orange-400);
+    }
+  }
+}
 
-        &:checked + label {
-          color: var(--color-green-900);
-          background-color: var(--color-green-400);
+.fieldset {
+  border: transparent;
+
+  &-grid {
+    display: grid;
+    gap: var(--spacing-200);
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &-grid-selection {
+
+    .radio-button {
+      display: none;
+
+      &:checked + label {
+        color: var(--color-green-900);
+        background-color: var(--color-green-400);
+      }
+    }
+
+    label {
+      margin: 0;
+      padding: var(--spacing-100) var(--spacing-200);
+      background-color: var(--color-green-900);
+      color: var(--color-white);
+      text-align: center;
+      border-radius: 5px;
+      @include fonts.apply-text-preset("3");
+    }
+
+    &.custom {
+      position: relative;
+
+      .radio-button {
+        & + label input {
+          display: none;
+        }
+
+        &:checked + label span {
+          display: none;
+        }
+
+        &:checked + label:after {
+          pointer-events: none;
+          position: absolute;
+          right: calc(50% - 23px);
+          display: inline-flex;
+          content: "%";
+          color: var(--color-white);
+          @include fonts.apply-text-preset("3");
+        }
+
+        &:checked + label input {
+          display: unset;
+          width: fit-content;
+          text-align: right;
+          background-color: transparent;
+          border: transparent;
+          outline: transparent;
+          color: var(--color-white);
+          padding-right: 16px;
+          @include fonts.apply-text-preset("3");
         }
       }
       label {
-        margin: 0;
-        padding: var(--spacing-100) var(--spacing-200);
-        background-color: var(--color-green-900);
-        color: var(--color-white);
-        text-align: center;
-        border-radius: 5px;
-        @include fonts.apply-text-preset("3");
-      }
-
-      &.custom {
-        position: relative;
-
-        input[type="radio"] {
-          & + label input {
-            display: none;
-          }
-
-          &:checked + label span {
-            display: none;
-          }
-
-          &:checked + label:after {
-            pointer-events: none;
-            position: absolute;
-            right: calc(50% - 23px);
-            display: inline-flex;
-            content: "%";
-            color: var(--color-white);
-            @include fonts.apply-text-preset("3");
-          }
-
-          &:checked + label input {
-            display: unset;
-            width: fit-content;
-            text-align: right;
-            background-color: transparent;
-            border: transparent;
-            outline: transparent;
-            color: var(--color-white);
-            padding-right: 16px;
-            @include fonts.apply-text-preset("3");
-          }
-        }
-        label {
-          background-color: var(--color-grey-50);
-          color: var(--color-grey-550);
-        }
+        background-color: var(--color-grey-50);
+        color: var(--color-grey-550);
       }
     }
   }
@@ -218,7 +219,8 @@ form {
         @include fonts.apply-text-preset("6");
       }
     }
-    input {
+
+    output {
       width: 100%;
       border: transparent;
       background-color: transparent;
@@ -226,9 +228,10 @@ form {
       color: var(--color-green-400);
       @include fonts.apply-text-preset("2");
     }
+    
   }
 
-  button[type="reset"] {
+  .reset-button {
     color: var(--color-green-800);
     background-color: var(--color-green-750);
     padding: var(--spacing-100) var(--spacing-400);
