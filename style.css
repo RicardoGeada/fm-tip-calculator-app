@@ -166,13 +166,11 @@ main {
   display: none;
 }
 .fieldset-grid-selection.custom .radio-button:checked + label span {
-  opacity: 0;
+  display: none;
 }
 .fieldset-grid-selection.custom .radio-button:checked + label:after {
   pointer-events: none;
-  position: absolute;
-  right: calc(50% - 23px);
-  display: inline-flex;
+  margin-right: 18px;
   content: "%";
   color: var(--color-white);
   font-size: 24px;
@@ -181,8 +179,6 @@ main {
   letter-spacing: 0px;
 }
 .fieldset-grid-selection.custom .radio-button:checked + label input {
-  position: absolute;
-  left: 16px;
   display: unset;
   width: fit-content;
   text-align: right;
@@ -190,13 +186,20 @@ main {
   border: transparent;
   outline: transparent;
   color: var(--color-white);
-  padding-right: 16px;
   font-size: 24px;
   font-weight: 700;
   line-height: 36px;
   letter-spacing: 0px;
 }
+.fieldset-grid-selection.custom .radio-button:checked + label input::-webkit-outer-spin-button, .fieldset-grid-selection.custom .radio-button:checked + label input::-webkit-inner-spin-button {
+  position: absolute;
+  left: 0px;
+  width: 16px;
+  height: 100%;
+}
 .fieldset-grid-selection.custom label {
+  display: flex;
+  justify-content: center;
   background-color: var(--color-grey-50);
   color: var(--color-grey-550);
 }
@@ -297,6 +300,9 @@ main {
   }
   .billsection {
     gap: var(--spacing-500);
+  }
+  .fieldset-grid-selection {
+    min-width: 120px;
   }
   .resultssection {
     padding: var(--spacing-300) var(--spacing-400);

@@ -156,22 +156,18 @@ main {
         }
 
         &:checked + label span {
-          opacity: 0;
+          display: none;
         }
 
         &:checked + label:after {
           pointer-events: none;
-          position: absolute;
-          right: calc(50% - 23px);
-          display: inline-flex;
+          margin-right: 18px;
           content: "%";
           color: var(--color-white);
           @include fonts.apply-text-preset("3");
         }
 
         &:checked + label input {
-          position: absolute;
-          left: 16px;
           display: unset;
           width: fit-content;
           text-align: right;
@@ -179,11 +175,21 @@ main {
           border: transparent;
           outline: transparent;
           color: var(--color-white);
-          padding-right: 16px;
           @include fonts.apply-text-preset("3");
+
+          &::-webkit-outer-spin-button,
+          &::-webkit-inner-spin-button {
+            position: absolute;
+            left: 0px;
+            width: 16px;
+            height: 100%;
+          }
         }
       }
+
       label {
+        display: flex;
+        justify-content: center;
         background-color: var(--color-grey-50);
         color: var(--color-grey-550);
       }
@@ -292,6 +298,10 @@ main {
 
   .billsection {
     gap: var(--spacing-500);
+  }
+
+  .fieldset-grid-selection {
+    min-width: 120px;
   }
 
   .resultssection {
