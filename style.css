@@ -53,7 +53,6 @@
 body {
   background-color: var(--color-grey-200);
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   min-height: 100vh;
@@ -68,7 +67,7 @@ main {
   max-width: 100%;
 }
 
-form {
+.form {
   background-color: var(--color-white);
   padding: var(--spacing-400) var(--spacing-300);
   border-radius: 25px 25px 0 0;
@@ -135,6 +134,12 @@ form {
   gap: var(--spacing-200);
   grid-template-columns: 1fr 1fr;
 }
+.fieldset-grid-selection {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: 0px;
+}
 .fieldset-grid-selection .radio-button {
   display: none;
 }
@@ -161,7 +166,7 @@ form {
   display: none;
 }
 .fieldset-grid-selection.custom .radio-button:checked + label span {
-  display: none;
+  opacity: 0;
 }
 .fieldset-grid-selection.custom .radio-button:checked + label:after {
   pointer-events: none;
@@ -176,6 +181,8 @@ form {
   letter-spacing: 0px;
 }
 .fieldset-grid-selection.custom .radio-button:checked + label input {
+  position: absolute;
+  left: 16px;
   display: unset;
   width: fit-content;
   text-align: right;
@@ -252,6 +259,53 @@ form {
 .resultssection .reset-button:hover {
   color: var(--color-green-900);
   background-color: var(--color-green-200);
+}
+
+@media (min-width: 48em) {
+  .form {
+    padding: var(--spacing-600) var(--spacing-1000);
+    border-radius: 25px;
+  }
+  .billsection {
+    gap: var(--spacing-300);
+  }
+  .fieldset-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .resultssection {
+    padding: var(--spacing-500) var(--spacing-600);
+    gap: var(--spacing-200);
+  }
+  .resultssection .values {
+    gap: 0;
+  }
+  .resultssection .value-container output {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 71px;
+    letter-spacing: -1px;
+  }
+}
+@media (min-width: 67.5em) {
+  body {
+    justify-content: center;
+  }
+  .form {
+    padding: var(--spacing-400);
+    gap: var(--spacing-600);
+    flex-direction: row;
+  }
+  .billsection {
+    gap: var(--spacing-500);
+  }
+  .resultssection {
+    padding: var(--spacing-300) var(--spacing-400);
+    gap: var(--spacing-200);
+    justify-content: space-between;
+  }
+  .resultssection .values {
+    gap: var(--spacing-300);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
