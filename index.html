@@ -15,6 +15,7 @@
     <title>Frontend Mentor | Tip calculator app</title>
 
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 
   </head>
   <body>
@@ -22,7 +23,7 @@
       <img src="./assets/images/logo.svg" alt="logo">
     </header>
     <main>
-      <form class="form">
+      <form class="form" id="form">
         <!-- Bill Section -->
         <section class="billsection">
           <!-- Bill -->
@@ -60,7 +61,7 @@
                 <label for="fiftypercent">50%</label>
               </div>
               <div class="fieldset-grid-selection custom">
-                <input class="radio-button" type="radio" name="tip" id="customtip" value="">
+                <input class="radio-button" type="radio" name="tip" id="customtip" value="0">
                 <label for="customtip">
                   <span>Custom</span>
                   <input type="number" name="customtipInput" id="customtipInput" min="0" max="100" value="0">
