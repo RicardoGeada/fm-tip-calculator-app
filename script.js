@@ -24,6 +24,11 @@ function validate(billValue, peopleValue) {
 }
 
 function updateCustomTip() {
+  if (isNaN(customTipInput.valueAsNumber)) {
+    customTipInput.value = 0;
+  } else if (customTipInput.valueAsNumber > 100) {
+    customTipInput.value = 100;
+  }
   customTip.value = customTipInput.value;
 }
 
@@ -35,7 +40,7 @@ function update() {
   if (!validate(billValue, peopleValue)) {
     tipAmount.value = "$0.00";
     total.value = "$0.00";
-    return
+    return;
   }
 
   const billPerPerson = billValue / peopleValue;
