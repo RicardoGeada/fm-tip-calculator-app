@@ -81,6 +81,16 @@ main {
   }
 }
 
+label[for]:has(+ .input-with-icon input:invalid) {
+  display: flex;
+  justify-content: space-between;
+
+  &::after {
+    content: "Can't be zero";
+    color: var(--color-orange-400);
+  }
+}
+
 .input-with-icon {
   position: relative;
 
