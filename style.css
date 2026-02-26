@@ -275,6 +275,9 @@ label[for]:has(+ .input-with-icon input:not(:placeholder-shown):invalid)::after 
 }
 
 @media (min-width: 48em) {
+  body {
+    justify-content: flex-start;
+  }
   .form {
     padding: var(--spacing-600) var(--spacing-1000);
     border-radius: 25px;

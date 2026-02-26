@@ -266,6 +266,11 @@ label[for]:has(+ .input-with-icon input:not(:placeholder-shown):invalid) {
 
 // tablet 768px
 @media (min-width: 48em) {
+
+  body {
+    justify-content: flex-start;
+  }
+
   .form {
     padding: var(--spacing-600) var(--spacing-1000);
     border-radius: 25px;
@@ -297,6 +302,7 @@ label[for]:has(+ .input-with-icon input:not(:placeholder-shown):invalid) {
 
 // desktop 1080px
 @media (min-width: 67.5em) {
+
   body {
     justify-content: center;
   }
