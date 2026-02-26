@@ -94,11 +94,11 @@ main {
   letter-spacing: 0px;
 }
 
-label[for]:has(+ .input-with-icon input:invalid) {
+label[for]:has(+ .input-with-icon input:not(:placeholder-shown):invalid) {
   display: flex;
   justify-content: space-between;
 }
-label[for]:has(+ .input-with-icon input:invalid)::after {
+label[for]:has(+ .input-with-icon input:not(:placeholder-shown):invalid)::after {
   content: "Can't be zero";
   color: var(--color-orange-400);
 }
@@ -132,7 +132,7 @@ label[for]:has(+ .input-with-icon input:invalid)::after {
 .input-with-icon__input:active, .input-with-icon__input:focus {
   border-color: var(--color-green-400);
 }
-.input-with-icon__input:invalid {
+.input-with-icon__input:not(:placeholder-shown):invalid {
   border-color: var(--color-orange-400);
 }
 
