@@ -53,6 +53,7 @@ function update() {
 }
 
 form.addEventListener("input", update);
+form.addEventListener("submit", e => e.preventDefault());
 customTipInput.addEventListener("input", updateCustomTip);
 
 update();
