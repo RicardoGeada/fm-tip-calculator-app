@@ -143,13 +143,13 @@ label[for]:has(+ .input-with-icon input:not(:placeholder-shown):invalid) {
     .radio-button {
       display: none;
 
-      &:checked + label {
+      &:checked + label, &:checked ~ .customtipInput-wrapper {
         color: var(--color-green-900);
         background-color: var(--color-green-400);
       }
     }
 
-    label {
+    label, .customtipInput-wrapper {
       margin: 0;
       padding: var(--spacing-100) var(--spacing-200);
       background-color: var(--color-green-900);
@@ -167,30 +167,23 @@ label[for]:has(+ .input-with-icon input:not(:placeholder-shown):invalid) {
       position: relative;
 
       .radio-button {
-        & + label input {
+        
+
+        &:checked ~ label[for="customtip"] {
           display: none;
         }
 
-        &:checked + label span {
-          display: none;
+        &:checked ~ .customtipInput-wrapper {
+          display: flex;
+          justify-content: center;
         }
 
-        &:checked + label:after {
-          pointer-events: none;
-          margin-right: 18px;
-          content: "%";
-          color: var(--color-white);
-          @include fonts.apply-text-preset("3");
-        }
-
-        &:checked + label input {
-          display: unset;
+        &:checked ~ .customtipInput-wrapper input {
           width: fit-content;
           text-align: right;
           background-color: transparent;
           border: transparent;
           outline: transparent;
-          color: var(--color-white);
           @include fonts.apply-text-preset("3");
 
           &::-webkit-outer-spin-button,
@@ -203,12 +196,16 @@ label[for]:has(+ .input-with-icon input:not(:placeholder-shown):invalid) {
         }
       }
 
-      label {
+      label[for="customtip"] {
         display: flex;
         justify-content: center;
         background-color: var(--color-grey-50);
         color: var(--color-grey-550);
       }
+
+      .customtipInput-wrapper {
+          display: none;
+        }
     }
   }
 }
@@ -284,7 +281,6 @@ label[for]:has(+ .input-with-icon input:not(:placeholder-shown):invalid) {
 
 // tablet 768px
 @media (min-width: 48em) {
-
   body {
     justify-content: flex-start;
   }
@@ -320,7 +316,6 @@ label[for]:has(+ .input-with-icon input:not(:placeholder-shown):invalid) {
 
 // desktop 1080px
 @media (min-width: 67.5em) {
-
   body {
     justify-content: center;
   }

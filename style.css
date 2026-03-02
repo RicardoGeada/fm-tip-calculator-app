@@ -154,11 +154,11 @@ label[for]:has(+ .input-with-icon input:not(:placeholder-shown):invalid)::after 
 .fieldset-grid-selection .radio-button {
   display: none;
 }
-.fieldset-grid-selection .radio-button:checked + label {
+.fieldset-grid-selection .radio-button:checked + label, .fieldset-grid-selection .radio-button:checked ~ .customtipInput-wrapper {
   color: var(--color-green-900);
   background-color: var(--color-green-400);
 }
-.fieldset-grid-selection label {
+.fieldset-grid-selection label, .fieldset-grid-selection .customtipInput-wrapper {
   margin: 0;
   padding: var(--spacing-100) var(--spacing-200);
   background-color: var(--color-green-900);
@@ -170,52 +170,44 @@ label[for]:has(+ .input-with-icon input:not(:placeholder-shown):invalid)::after 
   line-height: 36px;
   letter-spacing: 0px;
 }
-.fieldset-grid-selection label:hover {
+.fieldset-grid-selection label:hover, .fieldset-grid-selection .customtipInput-wrapper:hover {
   cursor: pointer;
 }
 .fieldset-grid-selection.custom {
   position: relative;
 }
-.fieldset-grid-selection.custom .radio-button + label input {
+.fieldset-grid-selection.custom .radio-button:checked ~ label[for=customtip] {
   display: none;
 }
-.fieldset-grid-selection.custom .radio-button:checked + label span {
-  display: none;
+.fieldset-grid-selection.custom .radio-button:checked ~ .customtipInput-wrapper {
+  display: flex;
+  justify-content: center;
 }
-.fieldset-grid-selection.custom .radio-button:checked + label:after {
-  pointer-events: none;
-  margin-right: 18px;
-  content: "%";
-  color: var(--color-white);
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 36px;
-  letter-spacing: 0px;
-}
-.fieldset-grid-selection.custom .radio-button:checked + label input {
-  display: unset;
+.fieldset-grid-selection.custom .radio-button:checked ~ .customtipInput-wrapper input {
   width: fit-content;
   text-align: right;
   background-color: transparent;
   border: transparent;
   outline: transparent;
-  color: var(--color-white);
   font-size: 24px;
   font-weight: 700;
   line-height: 36px;
   letter-spacing: 0px;
 }
-.fieldset-grid-selection.custom .radio-button:checked + label input::-webkit-outer-spin-button, .fieldset-grid-selection.custom .radio-button:checked + label input::-webkit-inner-spin-button {
+.fieldset-grid-selection.custom .radio-button:checked ~ .customtipInput-wrapper input::-webkit-outer-spin-button, .fieldset-grid-selection.custom .radio-button:checked ~ .customtipInput-wrapper input::-webkit-inner-spin-button {
   position: absolute;
   left: 0px;
   width: 16px;
   height: 100%;
 }
-.fieldset-grid-selection.custom label {
+.fieldset-grid-selection.custom label[for=customtip] {
   display: flex;
   justify-content: center;
   background-color: var(--color-grey-50);
   color: var(--color-grey-550);
+}
+.fieldset-grid-selection.custom .customtipInput-wrapper {
+  display: none;
 }
 
 .resultssection {
